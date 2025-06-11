@@ -1,40 +1,64 @@
-# Music-Recommendation-System-For-Mental-Health
+# 🎵 Music Recommendation System for Mental Health
 
-#R File Description
-Description of the R Script (cp.ds.R)
-This R script is designed for music effects classification using machine learning models. It preprocesses data, applies feature selection, balances classes, and trains multiple classifiers.
+## 📄 R Script Description: `cp.ds.R`
 
-Key Features & Steps:
-Libraries Used:
+This R script builds a machine learning pipeline to **classify the psychological effects of music** (e.g., Improve, No Effect) using survey data.
 
-Machine learning: randomForest, xgboost, adaboost, SVM, LR, DT
-Data handling: missForest, ROSE, caret, caTools
-Visualization: ggplot2, reshape2
-Feature selection: FSelector
-Data Preprocessing:
+---
 
-Loads dataset ds11.csv
-Removes unnecessary columns (Timestamp, column_to_delete, Permissions)
-Filters out rows with the "Worsen" class in Music.effects
-Converts categorical columns into factors
-Imputes missing values using missForest
-Balances the dataset using ROSE
-Feature Selection:
+## 🔧 Key Features
 
-Uses randomForest to rank features
-Selects the top 10 features based on MeanDecreaseGini
-Machine Learning Models:
+- **Data Preprocessing**
+  - Loads dataset `ds11.csv`
+  - Removes irrelevant columns (`Timestamp`, `column_to_delete`, `Permissions`)
+  - Filters out entries labeled as `"Worsen"` in `Music.effects`
+  - Converts categorical columns into factors
+  - Imputes missing values using `missForest`
+  - Balances the dataset using the `ROSE` algorithm
 
-Random Forest (RF): Hyperparameter tuning using mtry
-Support Vector Machine (SVM): Uses svmLinear
-Decision Tree (rpart)
-Logistic Regression (glm)
-XGBoost (xgbTree): Tuned with parameters (nrounds, max_depth, eta, etc.)
-AdaBoost (boosting): Uses rpart for base learners
-Model Evaluation:
+- **Feature Selection**
+  - Ranks features using `randomForest`
+  - Selects the **top 10** features based on `MeanDecreaseGini`
 
-Splits data into train (70%) and test (30%)
-Evaluates models using Confusion Matrix
-Computes ROC Curves & AUC Scores for all models
-Conclusion
-This script applies advanced ML techniques to classify music effects on individuals. It ensures data quality, balances classes, selects optimal features, and evaluates models comprehensively. Let me know if you need modifications or further analysis! 🚀
+- **Machine Learning Models**
+  - **Random Forest (RF)** — Tuned using `mtry`
+  - **Support Vector Machine (SVM)** — Linear kernel
+  - **Decision Tree (DT)** — Using `rpart`
+  - **Logistic Regression (LR)** — Using `glm`
+  - **XGBoost** — Tuned with parameters like `nrounds`, `max_depth`, `eta`
+  - **AdaBoost** — Implemented via `boosting` (base learners: `rpart`)
+
+- **Model Evaluation**
+  - Splits data: **70% Train / 30% Test**
+  - Evaluates with:
+    - **Confusion Matrix**
+    - **ROC Curves**
+    - **AUC Scores**
+
+---
+
+## 🎯 Purpose
+
+To automatically classify how music affects an individual's mental state, enabling personalized music recommendations that promote mental well-being.
+
+---
+
+## 📦 Packages Used
+
+- `randomForest`, `xgboost`, `adabag`, `e1071`, `glm`, `rpart`
+- `missForest`, `ROSE`, `caret`, `caTools`
+- `ggplot2`, `reshape2`, `FSelector`
+
+---
+
+## 📌 Summary
+
+This script ensures:
+- Clean and balanced data
+- Smart feature selection
+- Diverse model comparison
+- Insightful evaluation
+
+It forms the backbone of a mental health–focused music recommendation system using R.
+
+---
