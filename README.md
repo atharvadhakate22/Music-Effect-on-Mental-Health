@@ -7,7 +7,7 @@ This R script is designed for music effects classification using machine learnin
 Key Features & Steps:
 Libraries Used:
 
-Machine learning: randomForest, xgboost, adabag, e1071
+Machine learning: randomForest, xgboost, adaboost, SVM, LR, DT
 Data handling: missForest, ROSE, caret, caTools
 Visualization: ggplot2, reshape2
 Feature selection: FSelector
